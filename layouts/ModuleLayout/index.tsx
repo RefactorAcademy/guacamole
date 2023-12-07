@@ -71,7 +71,7 @@ const ModuleLayout: React.FunctionComponent<CourseModule> = ({
                         moduleId={moduleId}
                       /> */}
 
-        <ModuleVideoPlayer
+        {/* <ModuleVideoPlayer
           chapter={{
             title: 'First Chapter',
             id: 'ch::id::bl::1',
@@ -83,8 +83,8 @@ const ModuleLayout: React.FunctionComponent<CourseModule> = ({
           }}
           id={'4'}
           moduleId={'1'}
-        />
-        {/* {module.chapters.map(chapter => {
+        /> */}
+        {module.chapters.map(chapter => {
           chapters.push(
             <div key={chapter.id}>
               <Anchor smooth to={chapter.id}>
@@ -117,8 +117,8 @@ const ModuleLayout: React.FunctionComponent<CourseModule> = ({
               </Box>
             </AnchorSection>
           )
-        })} */}
-        {/* {module.assessment && module.assessment.length ? (
+        })}
+        {module.assessment && module.assessment.length ? (
           <ModuleAssessment
             id={id}
             moduleId={moduleId}
@@ -130,7 +130,7 @@ const ModuleLayout: React.FunctionComponent<CourseModule> = ({
               module.progress.previous_assessment_completed
             }
           />
-        ) : null} */}
+        ) : null}
         {/* {nextModule && (
           <Box direction="row" justify="end" pad="small">
             <Link
@@ -156,7 +156,7 @@ const ModuleLayout: React.FunctionComponent<CourseModule> = ({
 
       <Sidebar>
         <SidebarMainBox>
-          {/* <Box>
+          <Box>
             <Box direction="row">
               <Link
                 href={{
@@ -173,8 +173,8 @@ const ModuleLayout: React.FunctionComponent<CourseModule> = ({
                 </StyledLink>
               </Link>
             </Box>
-          </Box> */}
-          {/* {course.modules.map(chapterModule => {
+          </Box>
+          {course.modules.map(chapterModule => {
             const chapterModuleId = chapterModule.id.split('module::').pop()
             let isActive = chapterModuleId === moduleId ? true : false
 
@@ -207,11 +207,11 @@ const ModuleLayout: React.FunctionComponent<CourseModule> = ({
                 )}
               </Box>
             )
-          })} */}
+          })}
 
           <Box
             key={'id'}
-            // onClick = {()=>{Router.push(`/courses/${chapterModuleId}`)}}
+            onClick = {()=>{Router.push(`/courses/${chapterModuleId}`)}}
           >
             <Box direction="row">
               <Link
@@ -227,8 +227,8 @@ const ModuleLayout: React.FunctionComponent<CourseModule> = ({
               >
                 <StyledLink isActive={true}>
                   {' '}
-                  <span>Module {1}</span>
-                  {'chapterModule.title'}
+                  <span>Module {module.id.split('module::').pop()}</span>
+                  {module.chapters[0].title}
                 </StyledLink>
               </Link>
             </Box>

@@ -20,22 +20,22 @@ class ModuleComponent extends React.Component {
 
   componentDidMount() {
 
-    return
-    callAPI(ENDPOINTS.ME, null, null)
-      .then(this.checkResponse.bind(this))
-      .then(() => {
+    //return
+    // callAPI(ENDPOINTS.ME, null, null)
+    //   .then(this.checkResponse.bind(this))
+    //   .then(() => {
         let labId = localStorage.getItem('selectedLab')
         this.fetchCourse(labId)
-      })
+      // })
   }
 
   componentDidUpdate(prevProps) {
 
-    return
+    //return
     if (prevProps.moduleId !== this.props.moduleId) {
       this.setState({ isLoading: true })
-      // let labId = localStorage.getItem('selectedLab')
-      // this.fetchCourse(labId)
+      let labId = localStorage.getItem('selectedLab')
+      this.fetchCourse(labId)
     }
   }
 
@@ -73,17 +73,18 @@ class ModuleComponent extends React.Component {
           {  
             title:"Module 1", 
             desc: "Module 1 Description",
-            id: 1
+            id: "module::1",
             chapters: [
               {
-                title: "Chapter 1"
+                title: "Chapter 1",
                 id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
                 desc: "Chapter 1 Desc",
-                video_url: "https://youtube.com"
+                video_url: "https://youtube.com",
                 video_progress: 0,
                 chapter_completed: false
               }
-            ]
+            ],
            assessment: [],
            progress: {}
            
@@ -91,17 +92,170 @@ class ModuleComponent extends React.Component {
           {  
             title:"Module 2", 
             desc: "Module 2 Description",
-            id: 2
+            id: "module::2",
             chapters: [
               {
-                title: "Chapter 2"
-                id: "ch::id::bl::2",
-                desc: "Chapter 2 Desc",
-                video_url: "https://youtube.com"
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
                 video_progress: 0,
                 chapter_completed: false
               }
-            ]
+            ],
+           assessment: [],
+           progress: {}
+           
+          },
+          {  
+            title:"Module 3", 
+            desc: "Module 3 Description",
+            id: "module::3",
+            chapters: [
+              {
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
+                video_progress: 0,
+                chapter_completed: false
+              }
+            ],
+           assessment: [],
+           progress: {}
+           
+          },
+          {  
+            title:"Module 4", 
+            desc: "Module 4 Description",
+            id: "module::4",
+            chapters: [
+              {
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
+                video_progress: 0,
+                chapter_completed: false
+              }
+            ],
+           assessment: [],
+           progress: {}
+           
+          },
+          {  
+            title:"Module 5", 
+            desc: "Module 5 Description",
+            id: "module::5",
+            chapters: [
+              {
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
+                video_progress: 0,
+                chapter_completed: false
+              }
+            ],
+           assessment: [],
+           progress: {}
+           
+          },
+          {  
+            title:"Module 6", 
+            desc: "Module 6 Description",
+            id: "module::6",
+            chapters: [
+              {
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
+                video_progress: 0,
+                chapter_completed: false
+              }
+            ],
+           assessment: [],
+           progress: {}
+           
+          },
+          {  
+            title:"Module 7", 
+            desc: "Module 7 Description",
+            id: "module::7",
+            chapters: [
+              {
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
+                video_progress: 0,
+                chapter_completed: false
+              }
+            ],
+           assessment: [],
+           progress: {}
+           
+          },
+          {  
+            title:"Module 8", 
+            desc: "Module 8 Description",
+            id: "module::8",
+            chapters: [
+              {
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
+                video_progress: 0,
+                chapter_completed: false
+              }
+            ],
+           assessment: [],
+           progress: {}
+           
+          },
+          {  
+            title:"Module 9", 
+            desc: "Module 9 Description",
+            id: "module::9",
+            chapters: [
+              {
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
+                video_progress: 0,
+                chapter_completed: false
+              }
+            ],
+           assessment: [],
+           progress: {}
+           
+          },
+          {  
+            title:"Module 10", 
+            desc: "Module 10 Description",
+            id: "module::10",
+            chapters: [
+              {
+                title: "Chapter 1",
+                id: "ch::id::bl::1",
+                chapterId: "ch::id::bl::1",
+                desc: "Chapter 1 Desc",
+                video_url: "https://youtube.com",
+                video_progress: 0,
+                chapter_completed: false
+              }
+            ],
            assessment: [],
            progress: {}
            
@@ -158,27 +312,50 @@ class ModuleComponent extends React.Component {
   // }
 
   fetchModule(moduleId) {
-    let courseId = localStorage.getItem('courseId')
-    let email = localStorage.getItem('userName')
-    fetch(
-      `https://accounts.traklabs.io/course/module/${email}/${courseId}/${moduleId}`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('tkz'),
-        },
-      }
-    )
-      .then(res => {
-        return res.json()
-      })
-      .then(data => {
-        // console.log(data)
-        this.setState({
-          moduleData: data,
-          isLoading: false,
-        })
-        // console.log(data)
+    // let courseId = localStorage.getItem('courseId')
+    // let email = localStorage.getItem('userName')
+    // fetch(
+    //   `https://accounts.traklabs.io/course/module/${email}/${courseId}/${moduleId}`,
+    //   {
+    //     method: 'GET',
+    //     headers: {
+    //       Authorization: 'Bearer ' + localStorage.getItem('tkz'),
+    //     },
+    //   }
+    // )
+    //   .then(res => {
+    //     return res.json()
+    //   })
+    //   .then(data => {
+    //     // console.log(data)
+    //     this.setState({
+    //       moduleData: data,
+    //       isLoading: false,
+    //     })
+    //     // console.log(data)
+    //   })
+     let data =  {  
+      title: `Module ${moduleId}`, 
+      desc: `Module ${moduleId} Description`,
+      id: `module::${moduleId}`,
+      chapters: [
+        {
+          title: `Chapter ${moduleId}`,
+          id: `ch::id::bl::${moduleId}`,
+          chapterId: `ch::id::bl::${moduleId}`,
+          desc: `Chapter ${moduleId} Desc`,
+          video_url: "https://youtube.com",
+          video_progress: 0,
+          chapter_completed: false
+        }
+      ],
+     assessment: [],
+     progress: {}
+     
+    }
+      this.setState({
+        moduleData: data,
+        isLoading: false,
       })
   }
 
@@ -193,7 +370,7 @@ class ModuleComponent extends React.Component {
               {...this.props}
               course={courseData}
               module={moduleData}
-              moduleId={1}
+              moduleId={4}
             />
           {/* )} */}
         </MenuStructure>
